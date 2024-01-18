@@ -21,5 +21,11 @@ public class TitleScreen extends World
         
         Jimmy jimmy = new Jimmy();
         addObject(jimmy,100,300);
+        
+        Furniture furniture1 = new Furniture();
+        addObject(furniture1,300,0);
+        
+        Speed speed = new Speed();
+        addObject(speed,200,0);
     }
 }

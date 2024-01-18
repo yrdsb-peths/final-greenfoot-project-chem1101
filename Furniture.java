@@ -1,15 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Speed here.
+ * Jimmy's Furniture
  * 
- * @author (your name) 
+ * @author Chem
  * @version (a version number or a date)
  */
-public class Speed extends Actor
+public class Furniture extends Actor
 {
     /**
-     * Act - do whatever the Speed wants to do. This method is called whenever
+     * Act - do whatever the Furniture wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
