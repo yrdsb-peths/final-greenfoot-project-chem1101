@@ -16,7 +16,8 @@ public class Jimmy extends Actor
     
     //Direction Jimmy is facing
     String facing = "right";
-    SimpleTimer animationSpeedTimer = new SimpleTimer();
+    
+    SimpleTimer animationTimer = new SimpleTimer();
     /**
      * Constructor - The code that gets run one time when object is created
      */
@@ -38,7 +39,7 @@ public class Jimmy extends Actor
             runningLeft[i].scale(95,105);
         }
         
-        animationSpeedTimer.mark();
+        animationTimer.mark();
         
         idle.scale(95,105);
         setImage(runningRight[0]);
@@ -48,10 +49,12 @@ public class Jimmy extends Actor
     int imageIndex = 0;
     public void animateRunJimmy()
     {
-        if(animationSpeedTimer.millisElapsed()<1000)
+        //Speeds up/Slows down running animation
+        if(animationTimer.millisElapsed() < 200)
         {
             return;
         }
+        animationTimer.mark();
         if(facing.equals("right"))
         {
             setImage(runningRight[imageIndex]);
