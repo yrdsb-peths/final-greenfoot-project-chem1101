@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Furniture extends Actor
 {
+    int speed = 1;
+    
     /**
      * Act - do whatever the Furniture wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -15,7 +17,7 @@ public class Furniture extends Actor
     public void act()
     {
         int x = getX();
-        int y = getY() + 2;
+        int y = getY() + speed;
         setLocation(x,y);
         
         //Remove apple and draw a game over! CHange to switching to game Over screen
@@ -25,5 +27,10 @@ public class Furniture extends Actor
             game.gameOver();
             game.removeObject(this);
         }
+    }
+    
+    public void setSpeed(int spd)
+    {
+        speed = spd;
     }
 }
