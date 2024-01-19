@@ -11,6 +11,9 @@ public class Furniture extends Actor
     int speed = 1;
     GreenfootImage[] newFurn = new GreenfootImage[6];
     
+    GreenfootSound win = new GreenfootSound("win.mp3");
+    GreenfootSound lose = new GreenfootSound("wompwomp.mp3");
+    
     /**
      * Act - do whatever the Furniture wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -54,11 +57,24 @@ public class Furniture extends Actor
         {
             game.gameOver();
             game.removeObject(this);
+            lose.play();
+        }
+        
+        if(game.getScore()==100)
+        {
+            game.winner();
+            game.removeObject(this);
+            win.play();
         }
     }
     
     public void setSpeed(int spd)
     {
         speed = spd;
+    }
+    
+    public int getSpeed()
+    {
+        return speed;
     }
 }

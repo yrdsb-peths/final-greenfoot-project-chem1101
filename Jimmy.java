@@ -13,6 +13,7 @@ public class Jimmy extends Actor
     GreenfootImage[] runningRight = new GreenfootImage[10];
     GreenfootImage[] runningLeft = new GreenfootImage[10];
     GreenfootImage idle = new GreenfootImage("images/jimmy_idle.PNG");
+    public int speedster = 0;
     
     //Direction Jimmy is facing
     String facing = "right";
@@ -75,12 +76,12 @@ public class Jimmy extends Actor
     {
         if(Greenfoot.isKeyDown("left"))
         {
-            move(-2);
+            move(-2 + (-speedster));
             facing = "left";
         }
         else if(Greenfoot.isKeyDown("Right"))
         {
-            move(+2);
+            move(2 + speedster);
             facing = "right";
         }
         else
@@ -89,6 +90,7 @@ public class Jimmy extends Actor
         }
         //Checking if Jimmy has caught furniture, remove furniture because jimmy caught it.
         take();
+        takeSpeed();
         
         //ACTUALLY Animate Jimmy to make him RUn
         animateRunJimmy();
@@ -108,6 +110,19 @@ public class Jimmy extends Actor
             GameScreen game = (GameScreen) getWorld();
             game.createFurn();
             game.increaseScore();
+        }
+    }
+    
+    public void takeSpeed()
+    {
+        if(isTouching(SpeedBoost.class))
+        {
+            removeTouching(SpeedBoost.class);
+            jimmyTake.play();
+            GameScreen game = (GameScreen) getWorld();
+            game.createSpeedBoost();
+            game.increaseScore();
+            speedster++;
         }
     }
 }

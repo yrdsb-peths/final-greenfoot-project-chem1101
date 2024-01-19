@@ -11,6 +11,7 @@ public class GameScreen extends World
     public int score = 0;
     Label scoreLabel;
     int level = 1;
+    int speedBar = 1;
     public GameScreen()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -26,6 +27,9 @@ public class GameScreen extends World
         
         //Spawns Furniture/Creates Furniture
         createFurn();
+        createSpeedBoost();
+        
+        
     }
     
     /**
@@ -38,6 +42,12 @@ public class GameScreen extends World
         addObject(gameOverLabel, 300, 200);
     }
     
+    public void winner()
+    {
+        Label gameOverLabel = new Label("YOU WIN" , 100);
+        addObject(gameOverLabel, 300, 200);
+    }
+    
     public void increaseScore()
     {
         score++;
@@ -46,6 +56,11 @@ public class GameScreen extends World
         if(score%5 == 0)
         {
             level+=1;
+        }
+        
+        if(score%2 == 0)
+        {
+            speedBar+=1;
         }
     }
     
@@ -56,5 +71,19 @@ public class GameScreen extends World
         int x = Greenfoot.getRandomNumber(640);
         int y = 0;
         addObject(furn,x,y);
+    }
+    
+    public void createSpeedBoost()
+    {
+        SpeedBoost speedy = new SpeedBoost();
+        speedy.setSpeed(level);
+        int x = Greenfoot.getRandomNumber(640);
+        int y = 0;
+        addObject(speedy,x,y);
+    }
+    
+    public int getScore()
+    {
+        return score;
     }
 }
