@@ -25,6 +25,17 @@ public class Jimmy extends Actor
         }
         
         //remove furniture if jimmy catches it
-        removeTouching(Furniture.class);
+        caught();
+    }
+    
+    public void caught()
+    {
+        if(isTouching(Furniture.class))
+        {
+            removeTouching(Furniture.class);
+            MainGame game = (MainGame) getWorld();
+            game.createFurn();
+            game.increaseScore();
+        }
     }
 }
