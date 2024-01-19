@@ -11,6 +11,7 @@ public class GameScreen extends World
     public int score = 0;
     Label scoreLabel;
     int level = 1;
+    //used to increase speed of Speed Boost
     int speedBar = 1;
     public GameScreen()
     {    
@@ -33,15 +34,16 @@ public class GameScreen extends World
     }
     
     /**
-     * End game once furniture hits the floor
+     * Text for when you lose
      */
-    //change to when you lose 3 lives, so 3 instances of furniture hitting the floor
     public void gameOver()
     {
         Label gameOverLabel = new Label("Game Over" , 100);
         addObject(gameOverLabel, 300, 200);
     }
-    
+    /**
+     * Text for when you win
+     */
     public void winner()
     {
         Label gameOverLabel = new Label("YOU WIN" , 100);
