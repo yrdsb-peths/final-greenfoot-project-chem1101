@@ -22,7 +22,7 @@ public class Jimmy extends Actor
     {
         for(int i = 0;i<moving.length;i++)
         {
-            moving[i] = new GreenfootImage("images/elephant_idle/idle.png");
+            
         }
         setImage(moving[0]);
     }
