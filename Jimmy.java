@@ -38,6 +38,7 @@ public class Jimmy extends Actor
             removeTouching(Furniture.class);
             TitleScreen game = (TitleScreen) getWorld();
             game.createFurn();
+            game.increaseScore();
         }
     }
     
@@ -48,6 +49,7 @@ public class Jimmy extends Actor
             removeTouching(Speed.class);
             TitleScreen game = (TitleScreen) getWorld();
             game.createSpeed();
+            game.increaseScore();
         }
     }
 }

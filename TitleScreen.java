@@ -9,7 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 //Actual Game
 public class TitleScreen extends World
 {
-
+    public int score = 0;
+    Label scoreLabel;
     /**
      * Constructor for objects of class TitleScreen.
      * 
@@ -24,8 +25,8 @@ public class TitleScreen extends World
         addObject(jimmy,100,300);
         
         //Create a Label
-        Label scoreLabel = new Label(0,60);
-        addObject(scoreLabel,50,50);
+        scoreLabel = new Label(0,60);
+        addObject(scoreLabel,55,50);
         
         //Creating Furniture and speed boosts
         createFurn();
@@ -34,6 +35,12 @@ public class TitleScreen extends World
     /**
      * Create an a new furniture instance
      */
+    public void increaseScore()
+    {
+        score++;
+        scoreLabel.setValue(score);
+    }
+    
     public void createFurn()
     {
         Furniture furniture1 = new Furniture();
