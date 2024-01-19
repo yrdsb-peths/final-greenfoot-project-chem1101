@@ -16,11 +16,17 @@ public class Jimmy extends Actor
     {
         if(Greenfoot.isKeyDown("left"))
         {
-            move(-1);
+            move(-2);
         }
         else if(Greenfoot.isKeyDown("right"))
         {
-            move(1);
+            move(2);
         }
+        
+        //Removing Furniture once it's touched
+        removeTouching(Furniture.class);
+        
+        //Removing Speed boost once it's touched
+        removeTouching(Speed.class);
     }
 }

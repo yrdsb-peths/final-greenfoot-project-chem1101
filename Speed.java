@@ -14,6 +14,6 @@ public class Speed extends Actor
      */
     public void act()
     {
-        setLocation(getX(),getY()+1);
+        setLocation(getX(),getY()+2);
     }
 }

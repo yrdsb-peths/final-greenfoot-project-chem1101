@@ -22,10 +22,29 @@ public class TitleScreen extends World
         Jimmy jimmy = new Jimmy();
         addObject(jimmy,100,300);
         
-        Furniture furniture1 = new Furniture();
-        addObject(furniture1,300,0);
+        createFurn();
         
+        createSpeed();
+    }
+    /**
+     * Create an a new furniture instance
+     */
+    public void createFurn()
+    {
+        Furniture furniture1 = new Furniture();
+        int x = Greenfoot.getRandomNumber(640);
+        int y = 0;
+        addObject(furniture1,x,y);
+    }
+    
+    /**
+     * Add a speed boost into the world
+     */
+    public void createSpeed()
+    {
         Speed speed = new Speed();
-        addObject(speed,200,0);
+        int x = Greenfoot.getRandomNumber(640);
+        int y = 0;
+        addObject(speed,x,y);
     }
 }
