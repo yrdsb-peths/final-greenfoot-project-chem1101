@@ -1,7 +1,8 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class BackButton here.
+ * Created because Button Class stopped working and was crashing game..?
+ * rules page came first due to glitch in music!
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -15,5 +16,9 @@ public class BackButton extends Actor
     public void act()
     {
         // Add your action code here.
+        if(Greenfoot.mouseClicked(this))
+        {
+            Greenfoot.setWorld(new HomeScreen());
+        }
     }
 }

@@ -17,8 +17,12 @@ public class RuleScreen extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(640, 360, 1); 
-        Label home = new Label("Press spacebar to go back.", 30);
-        addObject(home,175,320);
+        //Label home = new Label("Press spacebar to go back.", 30);
+        //addObject(home,175,320);
+        
+        
+        BackButton back = new BackButton();
+        addObject(back,50,320);
         
     }
     
