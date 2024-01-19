@@ -8,19 +8,21 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Jimmy extends Actor
 {
+    GreenfootSound yipee = new GreenfootSound("equip.mp3");
     /**
      * Act - do whatever the Jimmy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    
     public void act()
     {
         if(Greenfoot.isKeyDown("left"))
         {
-            move(-2);
+            move(-4);
         }
         else if(Greenfoot.isKeyDown("right"))
         {
-            move(2);
+            move(4);
         }
         
         //Removing Furniture once it's touched
@@ -39,6 +41,7 @@ public class Jimmy extends Actor
             TitleScreen game = (TitleScreen) getWorld();
             game.createFurn();
             game.increaseScore();
+            yipee.play();
         }
     }
     
