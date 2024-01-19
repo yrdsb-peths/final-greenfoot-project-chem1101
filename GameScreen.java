@@ -12,7 +12,7 @@ public class GameScreen extends World
     public GameScreen()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(640, 360, 1); 
+        super(640, 360, 1,false); 
         
         Jimmy jimmy = new Jimmy();
         addObject(jimmy,60,300);

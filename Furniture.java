@@ -14,6 +14,8 @@ public class Furniture extends Actor
      */
     public void act()
     {
-        setLocation(getX(),getY()+2);
+        int x = getX();
+        int y = getY() + 2;
+        setLocation(x,y);
     }
 }
