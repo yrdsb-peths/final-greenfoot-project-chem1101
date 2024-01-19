@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Jimmy extends Actor
 {
-    
+    GreenfootSound jimmyCaught = new GreenfootSound("equip.mp3");
     /**
      * Act - do whatever the Jimmy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -26,14 +26,15 @@ public class Jimmy extends Actor
         }
         
         //remove furniture if jimmy catches it
-        caught();
+        caughtFurn();
     }
     
-    public void caught()
+    public void caughtFurn()
     {
         if(isTouching(Furniture.class))
         {
             removeTouching(Furniture.class);
+            jimmyCaught.play();
             MainGame game = (MainGame) getWorld();
             game.createFurn();
             game.increaseScore();

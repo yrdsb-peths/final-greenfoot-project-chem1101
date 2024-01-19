@@ -10,6 +10,7 @@ public class MainGame extends World
 {
     public int score = 0;
     Label scoreLabel;
+    GreenfootSound loser = new GreenfootSound("wompwomp.mp3");
     /**
      * Constructor for objects of class MainGame.
      * 
@@ -37,6 +38,7 @@ public class MainGame extends World
     public void gameOver()
     {
         Label gameOverLabel = new Label("Game Over",100);
+        loser.play();
         addObject(gameOverLabel,320,180);
     }
     /**
