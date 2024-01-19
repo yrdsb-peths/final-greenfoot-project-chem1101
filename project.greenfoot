@@ -132,6 +132,6 @@ target9.x=0
 target9.y=0
 version=3.1.0
 width=1550
-world.lastInstantiated=HomeScreen
+world.lastInstantiated=RuleScreen
 xPosition=0
 yPosition=0
