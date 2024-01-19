@@ -14,9 +14,9 @@ public class Jimmy extends Actor
     GreenfootImage[] runningLeft = new GreenfootImage[10];
     GreenfootImage idle = new GreenfootImage("images/jimmy_idle.PNG");
     
-    
     //Direction Jimmy is facing
     String facing = "right";
+    SimpleTimer animationSpeedTimer = new SimpleTimer();
     /**
      * Constructor - The code that gets run one time when object is created
      */
@@ -37,6 +37,9 @@ public class Jimmy extends Actor
             //makes jimmy a bigger person
             runningLeft[i].scale(95,105);
         }
+        
+        animationSpeedTimer.mark();
+        
         idle.scale(95,105);
         setImage(runningRight[0]);
     }
@@ -45,6 +48,10 @@ public class Jimmy extends Actor
     int imageIndex = 0;
     public void animateRunJimmy()
     {
+        if(animationSpeedTimer.millisElapsed()<1000)
+        {
+            return;
+        }
         if(facing.equals("right"))
         {
             setImage(runningRight[imageIndex]);
