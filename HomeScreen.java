@@ -9,6 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class HomeScreen extends World
 {
     GreenfootSound mainMusic = new GreenfootSound("mainGameMusic.mp3");
+    //trying to make music play once, i give up nothing is working.
+    public int total = 0;
     //Change into title Image ex:
     //GreenfootImage gameTitle = new GreenfootImage("images/jimmy_idle.PNG");
     //Label titleLabel = new Label("Moving Day w Jimmy",50);
@@ -20,6 +22,9 @@ public class HomeScreen extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(640, 360, 1);
+        
+        total++;
+        //music status
         
         //Game title
         GameTitle title = new GameTitle();
@@ -35,16 +40,25 @@ public class HomeScreen extends World
         Button rules = new Button("images/rules.PNG",new RuleScreen());
         addObject(rules,450,300);
         
+        
         //addObject(titleLabel,getWidth()/2,getHeight()/2);
         //addObject(gameTitle,getWidth()/2,(getHeight()/2)+50);
     }
-    
     /**
      * the main world act loop
      */
+    public void playingMusic()
+    {
+        if(total == 1)
+        {
+            mainMusic.play();
+            total++;
+        }
+    }
+    
     public void act()
     {
-        mainMusic.play();
+        playingMusic();
         //change to where they click button to start game
         //Not needed anymore
         /*if(Greenfoot.isKeyDown("space"))
