@@ -10,29 +10,49 @@ public class Jimmy extends Actor
 {
     GreenfootSound jimmyTake = new GreenfootSound("equip.mp3");
     //GreenfootImage running = new GreenfootImage("images/jimmy_run/idle0.PNG");
-    GreenfootImage[] running = new GreenfootImage[10];
+    GreenfootImage[] runningRight = new GreenfootImage[10];
+    GreenfootImage[] runningLeft = new GreenfootImage[10];
+    
+    //Direction Jimmy is facing
+    String facing = "right";
     /**
      * Constructor - The code that gets run one time when object is created
      */
     public Jimmy()
     {
         //part of animating jimmy running (when jimmy is created he's already running)
-        for(int i = 0; i<running.length; i++)
+        for(int i = 0; i<runningRight.length; i++)
         {
-            running[i] = new GreenfootImage("images/jimmy_run/idle"+ i+ ".PNG");
+            runningRight[i] = new GreenfootImage("images/jimmy_run/idle"+ i+ ".PNG");
             //makes jimmy a bigger person
-            running[i].scale(120,90);
+            runningRight[i].scale(95,105);
         }
-        setImage(running[0]);
+        
+        for(int i = 0; i<runningLeft.length; i++)
+        {
+            runningLeft[i] = new GreenfootImage("images/jimmy_run/idle"+ i+ ".PNG");
+            runningLeft[i].mirrorHorizontally();
+            //makes jimmy a bigger person
+            runningLeft[i].scale(95,105);
+        }
+        setImage(runningRight[0]);
     }
     
     //part of animating jimmy running
     int imageIndex = 0;
     public void animateRunJimmy()
     {
-        setImage(running[imageIndex]);
-        //prevents from index getting too big that it surpasses the actual index
-        imageIndex = (imageIndex + 1) % running.length;
+        if(facing.equals("right"))
+        {
+            setImage(runningRight[imageIndex]);
+            //prevents from index getting too big that it surpasses the actual index
+            imageIndex = (imageIndex + 1) % runningRight.length;
+        }else
+        {
+            setImage(runningLeft[imageIndex]);
+            //prevents from index getting too big that it surpasses the actual index
+            imageIndex = (imageIndex + 1) % runningLeft.length;
+        }
     }
     
     public void act()
@@ -40,10 +60,12 @@ public class Jimmy extends Actor
         if(Greenfoot.isKeyDown("left"))
         {
             move(-2);
+            facing = "left";
         }
         else if(Greenfoot.isKeyDown("Right"))
         {
             move(+2);
+            facing = "right";
         }
         //Checking if Jimmy has caught furniture, remove furniture because jimmy caught it.
         take();
