@@ -15,6 +15,13 @@ public class Jimmy extends Actor
     public void act()
     {
         //moving Jimmy
-        move(+1);
+        if(Greenfoot.isKeyDown("left"))
+        {
+            move(-3);
+        }
+        else if(Greenfoot.isKeyDown("right"))
+        {
+            move(+3);
+        }
     }
 }
