@@ -19,7 +19,7 @@ public class TitleScreen extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         //super(1280, 720, 1);
-        super(640,360,1);
+        super(640,360,1,false);
         
         Jimmy jimmy = new Jimmy();
         addObject(jimmy,100,300);
@@ -28,10 +28,24 @@ public class TitleScreen extends World
         scoreLabel = new Label(0,60);
         addObject(scoreLabel,55,50);
         
+        //Adding Lives
+        Lives hearts1 = new Lives();
+        addObject(hearts1,580,35);
+        
         //Creating Furniture and speed boosts
         createFurn();
         createSpeed();
     }
+    
+    /**
+     * End the game once 3 lives are gone
+     */
+    public void gameOver()
+    {
+        Label gameOverLabel = new Label("game Over",100);
+        addObject(gameOverLabel,300,200);
+    }
+    
     /**
      * Create an a new furniture instance
      */
@@ -59,4 +73,5 @@ public class TitleScreen extends World
         int y = 0;
         addObject(speed,x,y);
     }
+
 }

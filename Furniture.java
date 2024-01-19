@@ -15,5 +15,13 @@ public class Furniture extends Actor
     public void act()
     {
         setLocation(getX(),getY()+2);
+        
+        //Remove Furniture and draws game over when apple gets to bottom
+        TitleScreen game = (TitleScreen) getWorld();
+        if(getY() >= game.getHeight())
+        {
+            game.gameOver();
+            game.removeObject(this);
+        }
     }
 }
