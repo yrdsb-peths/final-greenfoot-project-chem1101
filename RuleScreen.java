@@ -15,7 +15,10 @@ public class RuleScreen extends World
      */
     public RuleScreen()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(640, 360, 1); 
+        
+        Button back = new Button("images/back.png",new HomeScreen());
+        addObject(back,180,300);
+        
     }
 }
