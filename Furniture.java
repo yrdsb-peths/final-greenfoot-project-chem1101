@@ -14,7 +14,17 @@ public class Furniture extends Actor
      */
     public void act()
     {
-        //Making apple fall downwards
-        setLocation(getX(),getY() + 1);
+        //Making furniture fall downwards
+        int x = getX();
+        int y = getY() + 2;
+        setLocation(x,y);
+        
+        //Remove furniture and draw game over when furniture hits the floor
+        MainGame game = (MainGame) getWorld();
+        if(getY() >= game.getHeight())
+        {
+            game.gameOver();
+            game.removeObject(this);
+        }
     }
 }

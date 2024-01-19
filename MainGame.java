@@ -17,7 +17,7 @@ public class MainGame extends World
     public MainGame()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(640, 360, 1);
+        super(640, 360, 1,false);
         
         //Adding Score Label
         scoreLabel = new Label(0,60);
@@ -30,6 +30,14 @@ public class MainGame extends World
         //Adding furniture
         createFurn();
         
+    }
+    /**
+     * End Game (Game Over).
+     */
+    public void gameOver()
+    {
+        Label gameOverLabel = new Label("Game Over",100);
+        addObject(gameOverLabel,320,180);
     }
     /**
      * Increases score
