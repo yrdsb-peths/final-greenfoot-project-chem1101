@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Furniture here.
+ * Jimmy's furniture(stuff he needs to catch)
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Chem 
+ * @version January 2024
  */
 public class Furniture extends Actor
 {
@@ -14,6 +14,7 @@ public class Furniture extends Actor
      */
     public void act()
     {
-        // Add your action code here.
+        //Making apple fall downwards
+        setLocation(getX(),getY() + 1);
     }
 }

@@ -14,6 +14,7 @@ public class Jimmy extends Actor
      */
     public void act()
     {
-        // Add your action code here.
+        //moving Jimmy
+        move(+1);
     }
 }
