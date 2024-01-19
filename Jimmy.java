@@ -8,10 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Jimmy extends Actor
 {
-    /**
-     * Act - do whatever the Jimmy wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    GreenfootSound jimmyTake = new GreenfootSound("equip.mp3");
     public void act()
     {
         if(Greenfoot.isKeyDown("left"))
@@ -36,6 +33,7 @@ public class Jimmy extends Actor
         if(isTouching(Furniture.class))
         {
             removeTouching(Furniture.class);
+            jimmyTake.play();
             GameScreen game = (GameScreen) getWorld();
             game.createFurn();
             game.increaseScore();
