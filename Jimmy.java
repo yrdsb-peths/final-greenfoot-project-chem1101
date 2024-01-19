@@ -22,5 +22,23 @@ public class Jimmy extends Actor
         {
             move(+2);
         }
+        //Checking if Jimmy has caught furniture, remove furniture because jimmy caught it.
+        take();
+    }
+    
+    //Creates New Furniture and takes away old one if conditions are met (where to add changes
+    // for lives code)
+    /**
+     * Jimmy takes his furniture then a new one appears
+     */
+    public void take()
+    {
+        if(isTouching(Furniture.class))
+        {
+            removeTouching(Furniture.class);
+            GameScreen game = (GameScreen) getWorld();
+            game.createFurn();
+            game.increaseScore();
+        }
     }
 }

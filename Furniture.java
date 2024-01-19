@@ -17,5 +17,13 @@ public class Furniture extends Actor
         int x = getX();
         int y = getY() + 2;
         setLocation(x,y);
+        
+        //Remove apple and draw a game over! CHange to switching to game Over screen
+        GameScreen game = (GameScreen) getWorld();
+        if(getY() >= game.getHeight())
+        {
+            game.gameOver();
+            game.removeObject(this);
+        }
     }
 }
