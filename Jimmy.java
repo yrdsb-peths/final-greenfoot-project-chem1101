@@ -12,6 +12,8 @@ public class Jimmy extends Actor
     //GreenfootImage running = new GreenfootImage("images/jimmy_run/idle0.PNG");
     GreenfootImage[] runningRight = new GreenfootImage[10];
     GreenfootImage[] runningLeft = new GreenfootImage[10];
+    GreenfootImage idle = new GreenfootImage("images/jimmy_idle.PNG");
+    
     
     //Direction Jimmy is facing
     String facing = "right";
@@ -35,6 +37,7 @@ public class Jimmy extends Actor
             //makes jimmy a bigger person
             runningLeft[i].scale(95,105);
         }
+        idle.scale(95,105);
         setImage(runningRight[0]);
     }
     
@@ -47,11 +50,14 @@ public class Jimmy extends Actor
             setImage(runningRight[imageIndex]);
             //prevents from index getting too big that it surpasses the actual index
             imageIndex = (imageIndex + 1) % runningRight.length;
-        }else
+        }else if(facing.equals("left"))
         {
             setImage(runningLeft[imageIndex]);
             //prevents from index getting too big that it surpasses the actual index
             imageIndex = (imageIndex + 1) % runningLeft.length;
+        }else
+        {
+            setImage(idle);
         }
     }
     
@@ -66,6 +72,10 @@ public class Jimmy extends Actor
         {
             move(+2);
             facing = "right";
+        }
+        else
+        {
+            facing = "idle";
         }
         //Checking if Jimmy has caught furniture, remove furniture because jimmy caught it.
         take();
