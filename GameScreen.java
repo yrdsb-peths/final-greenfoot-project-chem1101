@@ -1,25 +1,23 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class GameScreen here.
+ * Main Game Screen. This is the city Jimmy Lives in.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Chem Ugochukwu
+ * @version January 2024
  */
 public class GameScreen extends World
 {
-
-    /**
-     * Constructor for objects of class GameScreen.
-     * 
-     */
+    
     public GameScreen()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(640, 360, 1); 
         
-        GameScreen game = new GameScreen();
-        insertObject(game,640,360);
+        Jimmy jimmy = new Jimmy();
+        addObject(jimmy,60,300);
         
+        Furniture furn = new Furniture();
+        addObject(furn,60,0);
     }
 }
