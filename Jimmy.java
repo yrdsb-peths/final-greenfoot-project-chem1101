@@ -23,5 +23,8 @@ public class Jimmy extends Actor
         {
             move(+3);
         }
+        
+        //remove furniture if jimmy catches it
+        removeTouching(Furniture.class);
     }
 }
