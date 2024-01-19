@@ -24,9 +24,30 @@ public class Jimmy extends Actor
         }
         
         //Removing Furniture once it's touched
-        removeTouching(Furniture.class);
+        takeFurn();
         
         //Removing Speed boost once it's touched
-        removeTouching(Speed.class);
+        takeSpeed();
+    }
+    
+    //removes and spawns new furniture once caught by jimmy
+    public void takeFurn()
+    {
+        if(isTouching(Furniture.class))
+        {
+            removeTouching(Furniture.class);
+            TitleScreen game = (TitleScreen) getWorld();
+            game.createFurn();
+        }
+    }
+    
+    public void takeSpeed()
+    {
+        if(isTouching(Speed.class))
+        {
+            removeTouching(Speed.class);
+            TitleScreen game = (TitleScreen) getWorld();
+            game.createSpeed();
+        }
     }
 }

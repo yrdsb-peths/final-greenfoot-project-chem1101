@@ -6,6 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
+//Actual Game
 public class TitleScreen extends World
 {
 
@@ -22,8 +23,12 @@ public class TitleScreen extends World
         Jimmy jimmy = new Jimmy();
         addObject(jimmy,100,300);
         
-        createFurn();
+        //Create a Label
+        Label scoreLabel = new Label(0,60);
+        addObject(scoreLabel,50,50);
         
+        //Creating Furniture and speed boosts
+        createFurn();
         createSpeed();
     }
     /**
