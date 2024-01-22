@@ -36,22 +36,12 @@ public class Furniture extends Actor
     
     public void act()
     {
-        /*for(int i = 0; i<newFurn.length; i++)
-        {
-            newFurn[i] = new GreenfootImage("images\furniture\furn" + i +".PNG");
-            //makes jimmy a bigger person
-            newFurn[i].scale(95,105);
-        }
-        int num = Greenfoot.getRandomNumber(6);
-        
-        setImage(newFurn[num]);
-        */
-        
         int x = getX();
         int y = getY() + speed;
         setLocation(x,y);
         
-        //Remove apple and draw a game over! CHange to switching to game Over screen
+        //Remove apple and draw a game over! CHange 
+        //to switching to game Over screen
         GameScreen game = (GameScreen) getWorld();
         if(getY() >= game.getHeight())
         {

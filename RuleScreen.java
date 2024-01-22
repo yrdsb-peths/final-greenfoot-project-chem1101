@@ -1,26 +1,23 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class RuleScreen here.
+ * Page for recap of rules/ game's background story
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Chem
+ * @version January 2024
  */
 public class RuleScreen extends World
 {
-    //Rule Screen came first due to glitch in Music
+    //Rule Screen comes first in game due to overall glitch in music
     /**
-     * Constructor for objects of class RuleScreen.
+     * Constructs what the page of the RuleScreen looks like
      * 
      */
     public RuleScreen()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(640, 360, 1); 
-        //Label home = new Label("Press spacebar to go back.", 30);
-        //addObject(home,175,320);
         
-        
+        //Back Button to return back to homescreen
         BackButton back = new BackButton();
         addObject(back,50,320);
         
@@ -28,10 +25,6 @@ public class RuleScreen extends World
     
     public void act()
     {
-        if(Greenfoot.isKeyDown("space"))
-        {
-            HomeScreen home = new HomeScreen();
-            Greenfoot.setWorld(home);
-        }
+        
     }
 }

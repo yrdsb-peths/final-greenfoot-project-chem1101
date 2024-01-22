@@ -1,27 +1,35 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Button here.
+ * Used to create buttons with images that directs to different Worlds
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Chem
+ * @version January 2024
  */
 public class Button extends Actor
 {
-    /**
-     * Act - do whatever the Button wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    //variable to store world you want to return to
     private World link;
+    
+    /**
+     * Constructor when making new Button objects
+     * 
+     * @Param image image that button will have when placed in World
+     * @Param link World the button links to when clicked.
+     */
     public Button(String image, World link)
     {
         setImage(new GreenfootImage(image));
         this.link = link;
     }
     
+    /**
+     * Action to perform once mouse clicks image.
+     * Once mouse is clicked, you are sent to the World the button
+     * is linked to.
+     */
     public void act()
     {
-        // Add your action code here.
         if(Greenfoot.mouseClicked(this))
         {
             Greenfoot.setWorld(this.link);

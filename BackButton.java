@@ -2,20 +2,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Created because Button Class stopped working and was crashing game..?
- * rules page came first due to glitch in music!
+ * Rules page came first due to glitch in music!
+ * Class enables return to homeScreen.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Chem 
+ * @version January 2024
  */
 public class BackButton extends Actor
 {
-    /**
-     * Act - do whatever the BackButton wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public void act()
     {
-        // Add your action code here.
+        //If mouse clicks object, object returns to Home Screen page 
         if(Greenfoot.mouseClicked(this))
         {
             Greenfoot.setWorld(new HomeScreen());

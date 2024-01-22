@@ -8,8 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class GameScreen extends World
 {
+    //used to track score
     public int score = 0;
     Label scoreLabel;
+    
+    //used to track level (increases speed of furniture ++ each level)
     int level = 1;
     //used to increase speed of Speed Boost
     int speedBar = 1;
@@ -28,6 +31,7 @@ public class GameScreen extends World
         
         //Spawns Furniture/Creates Furniture
         createFurn();
+        //Spawns SpeedBoost
         createSpeedBoost();
         
         
@@ -50,6 +54,9 @@ public class GameScreen extends World
         addObject(gameOverLabel, 300, 200);
     }
     
+    /**
+     * Code to increase score + level + speed of speed boost.
+     */
     public void increaseScore()
     {
         score++;
@@ -66,6 +73,11 @@ public class GameScreen extends World
         }
     }
     
+    /**
+     * Creates new furniture, sets speed of new furniture
+     * + places furniture in random spot on the top
+     * of the screen.
+     */
     public void createFurn()
     {
         Furniture furn = new Furniture();
@@ -75,6 +87,10 @@ public class GameScreen extends World
         addObject(furn,x,y);
     }
     
+    /**
+     * Creates speed boost, sets speed of speed boost to level 
+     * (instead of speedBar)
+     */
     public void createSpeedBoost()
     {
         SpeedBoost speedy = new SpeedBoost();
@@ -84,6 +100,9 @@ public class GameScreen extends World
         addObject(speedy,x,y);
     }
     
+    /**
+     * getter method for the variable int score
+     */
     public int getScore()
     {
         return score;

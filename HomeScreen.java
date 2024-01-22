@@ -3,17 +3,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * HomeScreen of Game, will have rules option and start game option
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Chem
+ * @version January 2024
  */
 public class HomeScreen extends World
 {
+    //music that plays throughout the main game
     GreenfootSound mainMusic = new GreenfootSound("mainGameMusic.mp3");
-    //trying to make music play once, i give up nothing is working.
+    //Control variable for when music plays..?(couldnt code properly)
     public int total = 0;
-    //Change into title Image ex:
-    //GreenfootImage gameTitle = new GreenfootImage("images/jimmy_idle.PNG");
-    //Label titleLabel = new Label("Moving Day w Jimmy",50);
     /**
      * Constructor for objects of class HomeScreen.
      * 
@@ -23,29 +21,24 @@ public class HomeScreen extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(640, 360, 1);
         
+        //idea:music status (if total > 0, no new music plays)
         total++;
-        //music status
         
         //Game title
         GameTitle title = new GameTitle();
         addObject(title,320,180);
         
-        //Start Button
-        //StartButton start = new StartButton();
+        //Start Button on Home screen (takes you to main game)
         Button start = new Button("images/start.PNG",new GameScreen());
         addObject(start,180,300);
         
-        //Rules Button
-        //RulesButton rules = new RulesButton();
+        //Rules Button on Home screen (takes you to rules page)
         Button rules = new Button("images/rules.PNG",new RuleScreen());
         addObject(rules,450,300);
-        
-        
-        //addObject(titleLabel,getWidth()/2,getHeight()/2);
-        //addObject(gameTitle,getWidth()/2,(getHeight()/2)+50);
     }
     /**
-     * the main world act loop
+     * idea: Check's if music is currently playing then avoids 
+     * aka only plays if total = 1(1 = music not playing)
      */
     public void playingMusic()
     {
@@ -58,14 +51,12 @@ public class HomeScreen extends World
     
     public void act()
     {
+        /*
+         * starts playing music for the whole game when on HomeScreen
+         * Continues playing music throughout the game
+         * Glitch: Music repeats again everytime you revisit HomeScreen
+         * ^ not sure how to fix.
+         */
         playingMusic();
-        //change to where they click button to start game
-        //Not needed anymore
-        /*if(Greenfoot.isKeyDown("space"))
-        {
-            GameScreen game = new GameScreen();
-            Greenfoot.setWorld(game);
-        }
-        */
     }
 }

@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class GameOverScreen here.
+ * Screen that appears when game is over
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Chem
+ * @version January 2024
  */
 public class GameOverScreen extends World
 {
